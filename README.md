@@ -57,6 +57,9 @@ Each bit calculation need 2 Flip-Flop for SUM and CARRY.
    By this C0 has been calculated and become 0 because upper Flip-Flip's D is 0 now(LOAD is 0).  
 3. When all carry except highest carry become 0, FIN pin become 1 and meaning calculation is done.  
 
+And this adder is extendable very easily by repeating 0'bit area.  
+Like # 64-bit SAA Structure, but more bits size, too.  
+
 # Note
 Because I have only .gdf and screenshots now, I can't make any change from here.  
 If you want to edit this, you have to use "Max+plus II 10.2" and get a license from Altera web site or the University.  

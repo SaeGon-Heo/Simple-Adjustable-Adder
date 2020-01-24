@@ -60,6 +60,57 @@ Each bit calculation need 2 Flip-Flop for SUM and CARRY.
 And this adder is extendable very easily by repeating 0'bit area.  
 Like # 64-bit SAA Structure, but more bits size, too.  
 
+# Performance
+- Input clock  
+All case: 1 clock (or maybe 2 clocks)  
+- Carry calculation clock  
+Best case: 0 clocks  
+Worst case: n clocks (n = bits)  
+
+One clock time must bigger than "max(T(XOR2), T(AND2)) + T(D Flip-Flop) + T(OR2)".  
+
+**Average clock for carry calculation**
+
+bits|C0 = 0|C0 = 1|All case|Add 1|Sub 1 
+---- | ---- | ---- | ---- | ---- | ----  
+2|0.250000|1.500000|0.875000|0.500000|0.500000
+3|0.562500|1.875000|1.218750|0.750000|1.000000
+4|0.890625|2.125000|1.507813|0.875000|1.500000
+5|1.199219|2.328125|1.763672|0.937500|1.937500
+6|1.481445|2.492188|1.986816|0.968750|2.312500
+7|1.734131|2.638672|2.186401|0.984375|2.625000
+8|1.960266|2.768555|2.364410|0.992188|2.890625
+9|2.162338|2.888428|2.525383|0.996094|3.117188
+10|2.343861|2.999146|2.671503|0.998047|3.314453
+11|2.507682|3.102692|2.805187|0.999023|3.488281
+12|2.656434|3.199814|2.928124|0.999512|3.643555
+13|2.792279|3.291393|3.041836|0.999756|3.783691
+14|2.917058|3.377935|3.147497|0.999878|3.911377
+15|3.032277|3.459979|3.246128|0.999939|4.028564
+16|3.139202|3.537919|3.338561|0.999969|4.136841
+17|3.238882|3.612126|3.425504|0.999985|4.237442
+18|3.332193|3.682915|3.507554|0.999992|4.331375
+19|3.419873|3.750568|3.585221|0.999996|4.419464
+20|||||
+21|||||
+22|||||
+23|||||
+24|||||
+25|||||
+26|||||
+27|||||
+
+**Plot**
+
+![plot](https://user-images.githubusercontent.com/46312473/73046172-5f2c5e00-3eb4-11ea-8b64-ffe80cf47a7e.PNG)
+
+> A maximum bits is 27 in [Average clock calculation code](https://github.com/SaeGon-Heo/Simple-Adjustable-Adder/blob/master/SAA-avg-clock-calculator.c).  
+> But after 19 bits, the calculation time is too big for my i5-3570 cpu.  
+> PR would be my pleasure if anyone using a good cpu fill in the above table.  
+
+# License
+This project under a [BSD 2-Clause "Simplified" License](https://github.com/SaeGon-Heo/Simple-Adjustable-Adder/blob/master/LICENSE).
+
 # Note
 Because I have only .gdf and screenshots now, I can't make any change from here.  
 If you want to edit this, you have to use "Max+plus II 10.2" and get a license from Altera web site or the University.  
